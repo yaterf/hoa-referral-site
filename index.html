@@ -244,16 +244,16 @@
             <input type="text" id="referral_name" name="referral_name" required />
           </div>
           <div class="field">
-            <label for="referral_contact_name">A contact there <span class="req">*</span></label>
-            <input type="text" id="referral_contact_name" name="referral_contact_name" placeholder="A board member or manager we can reach" required />
+            <label for="referral_contact_name">Board member name <span class="req">*</span></label>
+            <input type="text" id="referral_contact_name" name="referral_contact_name" placeholder="e.g. the board president" required />
           </div>
           <div class="row">
             <div class="field">
-              <label for="referral_email">Their email <span class="req">*</span></label>
+              <label for="referral_email">Board member email <span class="req">*</span></label>
               <input type="email" id="referral_email" name="referral_email" />
             </div>
             <div class="field">
-              <label for="referral_phone">Their phone <span class="req">*</span></label>
+              <label for="referral_phone">Board member phone number <span class="req">*</span></label>
               <input type="tel" id="referral_phone" name="referral_phone" />
             </div>
           </div>
@@ -304,7 +304,7 @@
             </label>
           </div>
 
-          <button type="submit" class="submit" id="submitBtn">Claim my reward &rarr;</button>
+          <button type="submit" class="submit" id="submitBtn">Send referral &rarr;</button>
           <div class="err-msg" id="errMsg">Please fill in the required fields marked with *.</div>
 
           <p class="fineprint">
@@ -438,7 +438,7 @@
       })
       .catch(function () {
         submitBtn.disabled = false;
-        submitBtn.textContent = "Claim my reward →";
+        submitBtn.textContent = "Send referral →";
         showErr("Something went wrong sending that. Please try again, or call us at (864) 973-9440.");
       });
     });
@@ -457,7 +457,7 @@
       hideOnSuccess.forEach(function (id) { var el = document.getElementById(id); if (el) el.style.display = ""; });
       successBlk.classList.remove("show");
       submitBtn.disabled = false;
-      submitBtn.textContent = "Claim my reward →";
+      submitBtn.textContent = "Send referral →";
       // reset the role picker
       document.querySelectorAll(".role-btn").forEach(function (b) { b.classList.remove("active"); });
       roleInput.value = "";
