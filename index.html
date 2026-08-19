@@ -167,6 +167,14 @@
     /* ---------- Association-specific ---------- */
     .subhead{font-size:19px;font-weight:700;color:var(--ink);margin:0 0 4px;text-align:center}
 
+    .microtrust{text-align:center;color:var(--muted);font-size:12.5px;margin:0 0 20px;line-height:1.45}
+    .roles{display:flex;gap:8px;margin:0 0 10px;flex-wrap:wrap}
+    .role-btn{flex:1;min-width:96px;padding:12px 8px;border:1.5px solid var(--line);border-radius:9px;background:#fff;color:var(--ink);font-weight:600;font-size:13.5px;cursor:pointer;font-family:inherit;transition:border-color .15s,background .15s,color .15s,box-shadow .15s}
+    .role-btn:hover{border-color:var(--orange)}
+    .role-btn.active{background:var(--orange);color:#fff;border-color:var(--orange);box-shadow:0 4px 14px rgba(255,109,0,.3)}
+    .benefit{background:var(--ok-bg);border:1px solid #bbf7d0;border-radius:9px;padding:13px 15px;margin:2px 0 18px;color:#14532d;font-size:13.5px;line-height:1.5}
+    .benefit strong{color:#14532d}
+
     .trust{background:#fff8f2;border:1px solid #ffe0c7;border-left:4px solid var(--orange);border-radius:10px;padding:15px 17px;margin:0 0 22px}
     .trust p{margin:0;color:#5a4632;font-size:13.5px;line-height:1.55}
     .trust strong{color:var(--ink)}
@@ -216,8 +224,8 @@
 
   <header class="hero">
     <div class="wrap">
-      <h1>The easiest way to help a <span class="free">community</span> you know.</h1>
-      <p>Refer a community association to PMI Upstate SC. They get 50% off their first month, and you're rewarded once they've been an active client for 90 days.</p>
+      <h1>Refer a community.<br>You <span class="free">both</span> win.</h1>
+      <p>Make one intro. They get 50% off their first month, you get rewarded.</p>
     </div>
   </header>
 
@@ -225,114 +233,71 @@
     <div class="wrap">
       <div class="card">
 
-        <!-- TRUST -->
-        <div class="trust" id="trustBlock">
-          <p><strong>We only take on communities we can properly staff for.</strong> Referrals from people who already know our work are exactly how we like to grow. We add new communities in step with hiring, so service quality never slips.</p>
-        </div>
+        <!-- Sustainable-growth reassurance, kept short -->
+        <p class="microtrust" id="microTrust">We grow only as fast as we can staff, so the service never slips. Referrals from people who know our work are exactly how we like to grow.</p>
 
-        <!-- REWARDS -->
-        <div class="rewards" id="rewardsBlock">
-          <h3>What everyone gets</h3>
-          <p class="paynote">Rewards pay out once the community you refer has been an active client for 90 days.</p>
-          <div class="rwd">
-            <div class="cell">
-              <p class="who">Board member (any role)</p>
-              <p class="amt">Credit worth 50% of the new community's first monthly fee</p>
-              <p class="desc">Applied right to your own association's account.</p>
-            </div>
-            <div class="cell">
-              <p class="who">Vendor or homeowner</p>
-              <p class="amt">Gift card up to $250</p>
-              <p class="desc">Capped at the new community's monthly fee, never more than one month's value.</p>
-            </div>
-          </div>
-          <div class="newgets">The community you refer gets <strong>50% off their first month.</strong></div>
-        </div>
-
-        <!-- AUDIENCE (copy adapted from Referral-All-Scripts-v5.md) -->
-        <div class="aud" id="audBlock">
-          <div class="aud-tabs">
-            <button type="button" class="aud-tab active" data-aud="board">Board members</button>
-            <button type="button" class="aud-tab" data-aud="vendor">Vendors</button>
-            <button type="button" class="aud-tab" data-aud="home">Homeowners</button>
-          </div>
-          <div class="aud-panel active" id="aud-board">
-            <p>With annual budget planning coming up, here's a way to lower a line item. Know a board member at another community who's open to a management change? A quick introduction is all it takes. If they sign on and stay with us 90 days, your community gets a credit equal to half their first month's management fee, applied straight to your account. Real money back for a few minutes of your time.</p>
-            <ul><li>Credit applied straight to your association's account</li><li>A real, tangible reduction to what your community pays</li><li>Good timing as you review next year's budget</li></ul>
-          </div>
-          <div class="aud-panel" id="aud-vendor">
-            <p>Know a board that's frustrated with their current management, or a self-managed HOA ready for help? Send them our way. No forms, no catch, just an intro.</p>
-            <ul><li>Gift card worth up to $250 once they've been a client for 90 days</li><li>No cap on how many you can refer</li><li>They get 50% off their first month</li></ul>
-          </div>
-          <div class="aud-panel" id="aud-home">
-            <p>Know a self-managed HOA, or a board elsewhere that's looking for a change? A quick introduction could mean a little extra in your pocket heading into fall.</p>
-            <ul><li>Gift card worth up to $250 (good timing for holiday shopping)</li><li>They get 50% off their first month</li><li>Takes a couple of minutes</li></ul>
-          </div>
-        </div>
-
-        <div class="divider" id="dividerBlock"></div>
-
-        <!-- FORM -->
         <form id="referForm" novalidate>
-          <p class="subhead">Refer a community</p>
 
-          <div class="section-label">About you</div>
-          <p class="section-sub">So we know who to thank and how to reach you.</p>
-
-          <div class="field">
-            <label for="referrer_name">Your name <span class="req">*</span></label>
-            <input type="text" id="referrer_name" name="referrer_name" autocomplete="name" required />
-          </div>
-          <div class="field">
-            <label for="referrer_role">Your role <span class="req">*</span></label>
-            <select id="referrer_role" name="referrer_role" required>
-              <option value="" selected disabled>Select one&hellip;</option>
-              <option>Board Member</option>
-              <option>Vendor</option>
-              <option>Homeowner</option>
-            </select>
-          </div>
-          <div class="row">
-            <div class="field">
-              <label for="referrer_email">Your email <span class="req">*</span></label>
-              <input type="email" id="referrer_email" name="referrer_email" autocomplete="email" required />
-            </div>
-            <div class="field">
-              <label for="referrer_phone">Your phone <span class="opt">(optional)</span></label>
-              <input type="tel" id="referrer_phone" name="referrer_phone" autocomplete="tel" />
-            </div>
-          </div>
-          <div class="field">
-            <label for="referrer_community">Your own community <span class="opt">(optional)</span></label>
-            <input type="text" id="referrer_community" name="referrer_community" placeholder="Board members: where should we apply your credit?" />
-          </div>
-
-          <div class="section-label">The community you're referring</div>
-          <p class="section-sub">Who do you think we should talk to?</p>
+          <!-- STEP 1: the community being referred -->
+          <div class="section-label">Step 1 &middot; Who are you referring?</div>
+          <p class="section-sub">The community, and someone we can reach there.</p>
 
           <div class="field">
             <label for="referral_name">Community name <span class="req">*</span></label>
             <input type="text" id="referral_name" name="referral_name" required />
           </div>
           <div class="field">
-            <label for="referral_contact_name">Contact name <span class="req">*</span></label>
+            <label for="referral_contact_name">A contact there <span class="req">*</span></label>
             <input type="text" id="referral_contact_name" name="referral_contact_name" placeholder="A board member or manager we can reach" required />
           </div>
           <div class="row">
             <div class="field">
-              <label for="referral_email">Contact email <span class="req">*</span></label>
+              <label for="referral_email">Their email <span class="req">*</span></label>
               <input type="email" id="referral_email" name="referral_email" />
             </div>
             <div class="field">
-              <label for="referral_phone">Contact phone <span class="req">*</span></label>
+              <label for="referral_phone">Their phone <span class="req">*</span></label>
               <input type="tel" id="referral_phone" name="referral_phone" />
             </div>
           </div>
-          <p class="section-sub" style="margin:-8px 0 14px">Either email or phone works. We just need at least one way to reach them.</p>
+          <p class="section-sub" style="margin:-8px 0 14px">Email or phone is fine, we just need one.</p>
 
           <div class="field">
             <label for="referral_notes">Anything we should know? <span class="opt">(optional)</span></label>
             <textarea id="referral_notes" name="referral_notes" placeholder="e.g. 80 units, self-managed board, unhappy with their current manager."></textarea>
+          </div>
+
+          <!-- STEP 2: the referrer, role-driven -->
+          <div class="section-label">Step 2 &middot; What's your role?</div>
+          <p class="section-sub">This decides your reward.</p>
+          <div class="roles" id="roleGroup">
+            <button type="button" class="role-btn" data-role="Board Member">Board member</button>
+            <button type="button" class="role-btn" data-role="Vendor">Vendor</button>
+            <button type="button" class="role-btn" data-role="Homeowner">Homeowner</button>
+          </div>
+          <input type="hidden" id="referrer_role" name="referrer_role" />
+
+          <div id="referrerBlock" hidden>
+            <div class="benefit" id="benefitBox"></div>
+
+            <div class="field">
+              <label for="referrer_name">Your name <span class="req">*</span></label>
+              <input type="text" id="referrer_name" name="referrer_name" autocomplete="name" required />
+            </div>
+            <div class="row">
+              <div class="field">
+                <label for="referrer_email">Your email <span class="req">*</span></label>
+                <input type="email" id="referrer_email" name="referrer_email" autocomplete="email" required />
+              </div>
+              <div class="field">
+                <label for="referrer_phone">Your phone <span class="opt">(optional)</span></label>
+                <input type="tel" id="referrer_phone" name="referrer_phone" autocomplete="tel" />
+              </div>
+            </div>
+            <div class="field" id="communityField" hidden>
+              <label for="referrer_community">Your community <span class="req">*</span></label>
+              <input type="text" id="referrer_community" name="referrer_community" placeholder="Where should we apply your credit?" />
+            </div>
           </div>
 
           <!-- Honeypot: hidden from people, catches spam bots. Real users never see or fill this. -->
@@ -346,7 +311,7 @@
           <div class="err-msg" id="errMsg">Please fill in the required fields marked with *.</div>
 
           <p class="fineprint">
-            Rewards pay out once the community you refer has been an active PMI Upstate SC client for 90 days. Board-member rewards are an account credit equal to 50% of the new community's first monthly fee; vendor and homeowner rewards are a gift card up to $250, capped at the new community's monthly fee. If you're both a board member and a homeowner, the board reward applies. No limit on how many communities you can refer.
+            Rewards pay out once the community you refer has been an active PMI Upstate SC client for 90 days. Board-member rewards are an account credit equal to 50% of the new community's first monthly fee, applied to their own association's account. Vendor and homeowner rewards are a gift card worth up to $250, capped at the new community's monthly fee. No limit on how many communities you can refer.
           </p>
         </form>
 
@@ -380,27 +345,44 @@
 
   <script>
     /* =========================================================
-       CONFIG: paste the webhook URL from the NEW Association
-       Referral Make scenario here (clone of the residential one,
-       pointed at the LeadSimple HOA Leads pipeline).
+       Association (HOA) referral -> Make webhook -> LeadSimple.
+       Flow: referred community first, then the referrer picks a
+       role, which reveals their benefit and the fields we need.
        ========================================================= */
     var MAKE_WEBHOOK_URL = "https://hook.us2.make.com/vhakw1dqax4o77bqpgx4kn92c2xxrdke";
 
-    // Blocks hidden when the success screen shows, restored on "refer another".
-    var hideOnSuccess = ["trustBlock","rewardsBlock","audBlock","dividerBlock","referForm","faqBlock"];
-    var form       = document.getElementById("referForm");
-    var submitBtn  = document.getElementById("submitBtn");
-    var errMsg     = document.getElementById("errMsg");
-    var successBlk = document.getElementById("successBlock");
-    var againBtn   = document.getElementById("againBtn");
+    var hideOnSuccess = ["microTrust","referForm","faqBlock"];
+    var form           = document.getElementById("referForm");
+    var submitBtn      = document.getElementById("submitBtn");
+    var errMsg         = document.getElementById("errMsg");
+    var successBlk     = document.getElementById("successBlock");
+    var againBtn       = document.getElementById("againBtn");
+    var roleInput      = document.getElementById("referrer_role");
+    var referrerBlock  = document.getElementById("referrerBlock");
+    var benefitBox     = document.getElementById("benefitBox");
+    var communityField = document.getElementById("communityField");
+    var communityInput = document.getElementById("referrer_community");
 
-    // Audience tabs (board / vendor / homeowner)
-    document.querySelectorAll(".aud-tab").forEach(function (tab) {
-      tab.addEventListener("click", function () {
-        document.querySelectorAll(".aud-tab").forEach(function (t) { t.classList.remove("active"); });
-        document.querySelectorAll(".aud-panel").forEach(function (p) { p.classList.remove("active"); });
-        tab.classList.add("active");
-        document.getElementById("aud-" + tab.getAttribute("data-aud")).classList.add("active");
+    // Benefit copy shown after a role is picked.
+    var BENEFITS = {
+      "Board Member": "<strong>You get a credit worth 50% of their first month's management fee</strong>, applied straight to your own association's account. They get 50% off their first month.",
+      "Vendor": "<strong>You get a gift card worth up to $250</strong> once they've been a client for 90 days. They get 50% off their first month.",
+      "Homeowner": "<strong>You get a gift card worth up to $250</strong> once they've been a client for 90 days. They get 50% off their first month."
+    };
+
+    // Role selection drives the benefit text and which referrer fields show.
+    document.querySelectorAll(".role-btn").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        document.querySelectorAll(".role-btn").forEach(function (b) { b.classList.remove("active"); });
+        btn.classList.add("active");
+        var role = btn.getAttribute("data-role");
+        roleInput.value = role;
+        benefitBox.innerHTML = BENEFITS[role] || "";
+        referrerBlock.hidden = false;
+        var isBoard = (role === "Board Member");
+        communityField.hidden = !isBoard;
+        communityInput.required = isBoard;
+        if (!isBoard) { communityInput.value = ""; }
       });
     });
 
@@ -408,21 +390,25 @@
       e.preventDefault();
       errMsg.classList.remove("show");
 
-      // Honeypot: if this hidden field has a value, it's a bot. Silently drop the submission.
+      // Honeypot: if this hidden field has a value, it's a bot. Silently drop.
       if (document.getElementById("hp_company_url").value) { return; }
 
-      var required = ["referrer_name","referrer_role","referrer_email","referral_name","referral_contact_name"];
-      var ok = true;
-      required.forEach(function (id) {
-        if (!document.getElementById(id).value.trim()) { ok = false; }
-      });
-      if (!ok) { errMsg.textContent = "Please fill in the required fields marked with *."; errMsg.classList.add("show"); return; }
-
-      // The referred community needs at least one way to reach them: email or phone.
+      // Step 1: the referred community
+      if (!val("referral_name") || !val("referral_contact_name")) {
+        return showErr("Please add the community name and a contact there.");
+      }
       if (!val("referral_email") && !val("referral_phone")) {
-        errMsg.textContent = "Add an email or a phone number for the community you're referring.";
-        errMsg.classList.add("show");
-        return;
+        return showErr("Add an email or a phone number for the community you're referring.");
+      }
+      // Step 2: the referrer
+      if (!val("referrer_role")) {
+        return showErr("Please pick your role so we know your reward.");
+      }
+      if (!val("referrer_name") || !val("referrer_email")) {
+        return showErr("Please add your name and email.");
+      }
+      if (val("referrer_role") === "Board Member" && !val("referrer_community")) {
+        return showErr("Please tell us which community to credit.");
       }
 
       submitBtn.disabled = true;
@@ -464,12 +450,12 @@
       .catch(function () {
         submitBtn.disabled = false;
         submitBtn.textContent = "Send my referral →";
-        errMsg.textContent = "Something went wrong sending that. Please try again, or call us at (864) 973-9440.";
-        errMsg.classList.add("show");
+        showErr("Something went wrong sending that. Please try again, or call us at (864) 973-9440.");
       });
     });
 
-    function val(id){ return document.getElementById(id).value.trim(); }
+    function val(id){ var el = document.getElementById(id); return el ? el.value.trim() : ""; }
+    function showErr(msg){ errMsg.textContent = msg; errMsg.classList.add("show"); }
 
     function showSuccess(){
       hideOnSuccess.forEach(function (id) { var el = document.getElementById(id); if (el) el.style.display = "none"; });
@@ -483,8 +469,13 @@
       successBlk.classList.remove("show");
       submitBtn.disabled = false;
       submitBtn.textContent = "Send my referral →";
-      document.querySelectorAll(".aud-tab").forEach(function (t, i) { t.classList.toggle("active", i === 0); });
-      document.querySelectorAll(".aud-panel").forEach(function (p, i) { p.classList.toggle("active", i === 0); });
+      // reset the role picker
+      document.querySelectorAll(".role-btn").forEach(function (b) { b.classList.remove("active"); });
+      roleInput.value = "";
+      benefitBox.innerHTML = "";
+      referrerBlock.hidden = true;
+      communityField.hidden = true;
+      communityInput.required = false;
     });
   </script>
 </body>
