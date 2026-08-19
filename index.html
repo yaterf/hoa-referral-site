@@ -308,17 +308,9 @@
           <div class="err-msg" id="errMsg">Please fill in the required fields marked with *.</div>
 
           <p class="fineprint">
-            Rewards pay out once the community you refer has been an active PMI Upstate SC client for 90 days. Board-member rewards are an account credit equal to 50% of the new community's first monthly fee, applied to their own association's account. Vendor and homeowner rewards are a gift card worth up to $250, capped at the new community's monthly fee. No limit on how many communities you can refer.
+            Rewards are paid during the new community's onboarding with PMI Upstate SC. Board-member rewards are an account credit equal to 50% of the new community's first monthly fee, applied to their own association's account. Vendor and homeowner rewards are a gift card worth up to $250, capped at the new community's monthly fee. No limit on how many communities you can refer.
           </p>
         </form>
-
-        <!-- FAQ -->
-        <div class="faq" id="faqBlock">
-          <h3>Common questions</h3>
-          <details><summary>When do I get my reward?</summary><p>90 days after the community you referred becomes an active client.</p></details>
-          <details><summary>What if I'm a board member and a homeowner?</summary><p>Your board role takes priority, so the reward is the account credit rather than the gift card.</p></details>
-          <details><summary>Is there a limit to how many I can refer?</summary><p>No cap. Refer as many communities as you'd like.</p></details>
-        </div>
 
         <!-- SUCCESS -->
         <div class="success" id="successBlock">
@@ -326,7 +318,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
           </div>
           <h2>Referral received. Thank you!</h2>
-          <p>We'll reach out gently and let you know how it goes. Once the community you referred has been an active client for 90 days, your reward is on its way.</p>
+          <p>We'll reach out gently and let you know how it goes. Your reward is paid during the new community's onboarding.</p>
           <div class="success-actions">
             <button class="again" id="againBtn" type="button">Refer another community</button>
           </div>
@@ -348,7 +340,7 @@
        ========================================================= */
     var MAKE_WEBHOOK_URL = "https://hook.us2.make.com/vhakw1dqax4o77bqpgx4kn92c2xxrdke";
 
-    var hideOnSuccess = ["microTrust","referForm","faqBlock"];
+    var hideOnSuccess = ["referForm"];
     var form           = document.getElementById("referForm");
     var submitBtn      = document.getElementById("submitBtn");
     var errMsg         = document.getElementById("errMsg");
@@ -362,9 +354,9 @@
 
     // Benefit copy shown after a role is picked.
     var BENEFITS = {
-      "Board Member": "<strong>You get a credit worth 50% of their first month's management fee</strong>, applied straight to your own association's account. They get 50% off their first month.",
-      "Vendor": "<strong>You get a gift card worth up to $250</strong> once they've been a client for 90 days. They get 50% off their first month.",
-      "Homeowner": "<strong>You get a gift card worth up to $250</strong> once they've been a client for 90 days. They get 50% off their first month."
+      "Board Member": "<strong>You get a credit worth 50% of their first month's management fee</strong>, applied to your own association's account during the new community's onboarding. They get 50% off their first month.",
+      "Vendor": "<strong>You get a gift card worth up to $250</strong>, paid during the new community's onboarding. They get 50% off their first month.",
+      "Homeowner": "<strong>You get a gift card worth up to $250</strong>, paid during the new community's onboarding. They get 50% off their first month."
     };
 
     // Role selection drives the benefit text and which referrer fields show.
