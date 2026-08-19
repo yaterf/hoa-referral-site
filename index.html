@@ -304,7 +304,7 @@
             </label>
           </div>
 
-          <button type="submit" class="submit" id="submitBtn">Send my referral &rarr;</button>
+          <button type="submit" class="submit" id="submitBtn">Send the intro &rarr;</button>
           <div class="err-msg" id="errMsg">Please fill in the required fields marked with *.</div>
 
           <p class="fineprint">
@@ -438,7 +438,7 @@
       })
       .catch(function () {
         submitBtn.disabled = false;
-        submitBtn.textContent = "Send my referral →";
+        submitBtn.textContent = "Send the intro →";
         showErr("Something went wrong sending that. Please try again, or call us at (864) 973-9440.");
       });
     });
@@ -457,7 +457,7 @@
       hideOnSuccess.forEach(function (id) { var el = document.getElementById(id); if (el) el.style.display = ""; });
       successBlk.classList.remove("show");
       submitBtn.disabled = false;
-      submitBtn.textContent = "Send my referral →";
+      submitBtn.textContent = "Send the intro →";
       // reset the role picker
       document.querySelectorAll(".role-btn").forEach(function (b) { b.classList.remove("active"); });
       roleInput.value = "";
